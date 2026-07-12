@@ -23,5 +23,40 @@ This repository delivers an end-to-end data analytics portfolio piece. It uses c
 ├── Power_BI/
 │   └── Hospital_Performance_Dashboard.pbix
 │
-└── README.md
+└── README.md-- Create a clean analytical view for Power BI consumption
+WITH ClinicalCohort AS (
+    SELECT 
+        encounter_id,
+        patient_nbr AS patient_id,
+        age,
+        time_in_hospital AS length_of_stay,
+        num_medications,
+        number_diagnoses AS comorbidity_count,
+        diag_1 AS primary_diagnosis_code,
+        -- Normalize the readmission flag to a binary integer for Power BI calculation
+        CASE 
+            WHEN readmitted = '<30' THEN 1 
+            ELSE 0 
+        END AS is_30_day_readmit,
+        -- Order patient encounters chronologically using window functions
+        ROW_NUMBER() OVER (PARTITION BY patient_nbr ORDER BY encounter_id) as encounter_sequence
+    FROM hospital_admissions
+)
+SELECT 
+    encounter_id,
+    patient_id,
+    age,
+    length_of_stay,
+    num_medications,
+    comorbidity_count,
+    is_30_day_readmit,
+    encounter_sequence,
+    -- Label high-utilizer chronic patients (More than 5 documented diagnoses)
+    CASE 
+        WHEN comorbidity_count > 5 THEN 'High Risk'
+        WHEN comorbidity_count BETWEEN 3 AND 5 THEN 'Moderate Risk'
+        ELSE 'Low Risk'
+    END AS clinical_risk_tier
+FROM ClinicalCohort;
+
 

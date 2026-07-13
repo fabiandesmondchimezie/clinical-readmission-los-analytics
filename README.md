@@ -1,10 +1,9 @@
-![Uploading sticker_1783935356069.png…]()
 
 
+![Optimizing Patient Length of Stay Dashboard](LoS.png)
 
 
 ## 📌 Project Overview
-LoS.png
 Hospital readmissions within 30 days of discharge present massive financial penalties for healthcare networks under the Hospital Readmissions Reduction Program (HRRP) and often flag vital opportunities for improved transitional care. 
 
 This repository delivers an end-to-end data analytics portfolio piece. It uses complex SQL transformations to clean and model chronic patient data, coupled with a dynamic Power BI Executive Dashboard designed to isolate risk factors driving prolonged hospital stays and rapid patient returns.

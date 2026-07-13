@@ -11,19 +11,7 @@ This repository delivers an end-to-end data analytics portfolio piece. It uses c
 * **Optimize Capacity Management:** Analyze Length of Stay (LOS) trends across age brackets to improve hospital bed turnover.
 * **Clinical Risk Mitigation:** Stratify patients into actionable risk tiers to help discharge planners allocate home health care resources efficiently.
 
-## 📁 Repository Structureclinical-readmission-los-analytics/
-│
-├── Data/
-│   └── uci_diabetes_readmission_sample.csv
-│
-├── SQL_Scripts/
-│   ├── 01_data_transformation.sql
-│   └── 02_clinical_insights.sql
-│
-├── Power_BI/
-│   └── Hospital_Performance_Dashboard.pbix
-│
-└── README.md-- Create a clean analytical view for Power BI consumption
+## 📁 Repository Structure
 WITH ClinicalCohort AS (
     SELECT 
         encounter_id,

@@ -1,5 +1,7 @@
 
 Optimizing Patient Length of Stay (LOS) & 30-Day Readmissions
+
+LoS.png
 ## 📌 Project Overview
 Hospital readmissions within 30 days of discharge present massive financial penalties for healthcare networks under the Hospital Readmissions Reduction Program (HRRP) and often flag vital opportunities for improved transitional care. 
 
